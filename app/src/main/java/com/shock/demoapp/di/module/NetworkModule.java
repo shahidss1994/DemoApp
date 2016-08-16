@@ -24,6 +24,7 @@ import dagger.Provides;
 import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -35,6 +36,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module
 public class NetworkModule {
 
+    private final String TAG = NetworkModule.class.getSimpleName();
     private final String BASE_URL = "http://testapp.rentsetgo.co";
 
     DemoApp demoApp;
@@ -71,9 +73,24 @@ public class NetworkModule {
     @Singleton
     @Named("RESTFUL")
     OkHttpClient provideOkhttpClientRestful(@Named("RESTFUL") Cache cache) {
-        OkHttpClient.Builder client = new OkHttpClient.Builder();
-        client.cache(cache);
-        return client.build();
+        int timeout = 10;
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.readTimeout(timeout, TimeUnit.SECONDS)
+                .writeTimeout(timeout, TimeUnit.SECONDS)
+                .connectTimeout(timeout, TimeUnit.SECONDS);
+        builder.cache(cache);
+        builder.addInterceptor(new Interceptor() {
+            @Override
+            public Response intercept(Chain chain) throws IOException {
+                Request request = chain.request();
+                Log.d(TAG, "Request -> " + request);
+                Response response = chain.proceed(request);
+                Log.d(TAG, "Response -> " + response);
+                // if we want to grab a specific cookie or something.. place here..
+                return response;
+            }
+        });
+        return builder.build();
     }
 
     @Provides
@@ -90,7 +107,10 @@ public class NetworkModule {
         builder.addInterceptor(new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
-                Response response = chain.proceed(chain.request());
+                Request request = chain.request();
+                Log.d(TAG, "Request -> " + request);
+                Response response = chain.proceed(request);
+                Log.d(TAG, "Response -> " + response);
                 // if we want to grab a specific cookie or something.. place here..
                 return response;
             }
@@ -100,7 +120,7 @@ public class NetworkModule {
 
     @Provides
     @Singleton
-    Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
+    Retrofit provideRetrofit(Gson gson, @Named("RESTFUL") OkHttpClient okHttpClient) {
         return new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(okHttpClient)
@@ -116,7 +136,5 @@ public class NetworkModule {
         return OkHttpImagePipelineConfigFactory
                 .newBuilder(demoApp.getApplicationContext(), client)
                 .build();
-
-
     }
 }

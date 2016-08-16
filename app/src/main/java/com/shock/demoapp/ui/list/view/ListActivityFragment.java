@@ -128,10 +128,10 @@ public class ListActivityFragment extends AppBaseFragment implements ListView, O
 
     @Override
     public void onFailure(String msg) {
-        Log.d(TAG,msg);
+        showToast(msg,LENGTH_LONG);
     }
 
-    private void initializeView(List<DataItem> dataItems){
+    private void initializeView(List<DataItem> dataItems) {
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(new ListItemRecyclerViewAdapter(context, dataItems, this));
     }

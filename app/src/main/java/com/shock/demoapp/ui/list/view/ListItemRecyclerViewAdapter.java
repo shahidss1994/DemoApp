@@ -50,7 +50,7 @@ public class ListItemRecyclerViewAdapter extends RecyclerView.Adapter<ListItemRe
             holder.mView.startAnimation(slide_up);
             this.lastPosition = position;
         }
-        holder.mIdView.setText(mValues.get(position).getId());
+        holder.mIdView.setText(mValues.get(position).getId() + "");
         holder.mContentView.setText(mValues.get(position).getName());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {

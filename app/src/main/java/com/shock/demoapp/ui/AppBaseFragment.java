@@ -3,27 +3,36 @@ package com.shock.demoapp.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.widget.Toast;
 
 /**
  * Created by shahid on 12/8/16.
  */
 public class AppBaseFragment extends Fragment {
 
+    protected final int LENGTH_SHORT = Snackbar.LENGTH_SHORT;
+    protected final int LENGTH_LONG = Snackbar.LENGTH_LONG;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
-    public void startActivity(Intent intent, final boolean finishActivity) {
+    protected void startActivity(Intent intent, final boolean finishActivity) {
         ((AppBaseActivity) getActivity()).startActivity(intent, finishActivity);
     }
 
-    public void showProgressDailog() {
+    protected void showProgressDailog() {
         ((AppBaseActivity) getActivity()).showProgressDailog();
     }
 
-    public void hideProgressDailog() {
+    protected void hideProgressDailog() {
         ((AppBaseActivity) getActivity()).hideProgressDailog();
+    }
+
+    protected void showToast(String msg,int length){
+        ((AppBaseActivity) getActivity()).showToast(msg,length);
     }
 }
