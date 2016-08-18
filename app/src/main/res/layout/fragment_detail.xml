@@ -391,6 +391,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/cv_prod_desc"
+            android:visibility="gone"
             app:cardCornerRadius="5dp"
             app:cardElevation="3dp"
             app:cardUseCompatPadding="true"
@@ -398,7 +399,6 @@
 
             <android.support.v7.widget.LinearLayoutCompat
                 android:id="@+id/ll_prod_tnc"
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
