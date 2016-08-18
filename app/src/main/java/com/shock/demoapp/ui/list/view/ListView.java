@@ -11,7 +11,7 @@ public interface ListView {
 
     public void showProgress();
     public void hideProgress();
-    public void onSucess(List<DataItem> dataItems);
+    public void onSuccess(ListItemRecyclerViewAdapter dataItems);
     public void onFailure(String msg);
 
 }

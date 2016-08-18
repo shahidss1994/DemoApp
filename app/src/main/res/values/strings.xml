@@ -2,10 +2,27 @@
     <string name="app_name">DemoApp</string>
     <string name="action_settings">Settings</string>
     <string name="loading_please_wait_msg">Loading please wait...</string>
+    <string name="rupee_symbol">\u20B9</string>
+    <string name="dot_symbol">\u2022</string>
+    <string name="back_pressed">Press Again To Exit</string>
+    <string name="label_off">Off</string>
+    <string name="data_not_found">unable to fetch data from server</string>
+    <string name="retry">Retry</string>
+    <string name="serialize_data">data</string>
 
     <!-- Facebook -->
     <string name="facebook_app_id">889393141167418</string>
     <string name="key_hash">ga0RGNYHvNM5d0SLGQfpQWAPGJ8=</string>
     <string name="fb_login_protocol_scheme">fb889393141167418</string>
+
+    <!-- List Activity -->
+    <string name="per_day">PerDay</string>
+    <string name="per_week">PerWeek</string>
+    <string name="per_month">PerMonth</string>
+    <string name="label_desc">Description</string>
+    <string name="label_tnc"><![CDATA[Terms & Condition]]></string>
+    <string name="tnc_split_regex">#</string>
+    <string name="label_sort">Sort</string>
+
 
 </resources>

@@ -1,5 +1,6 @@
 package com.shock.demoapp.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -32,7 +33,11 @@ public class AppBaseFragment extends Fragment {
         ((AppBaseActivity) getActivity()).hideProgressDailog();
     }
 
-    protected void showToast(String msg,int length){
-        ((AppBaseActivity) getActivity()).showToast(msg,length);
+    protected void showToast(String msg, int length) {
+        ((AppBaseActivity) getActivity()).showToast(msg, length);
+    }
+
+    protected void replaceFragment(int layoutId, Fragment fragment, String tag) {
+        ((AppBaseActivity) getActivity()).replaceFragment(layoutId, fragment, tag);
     }
 }

@@ -61,6 +61,7 @@ public class LoginActivityFragment extends AppBaseFragment implements LoginView 
         Log.d(TAG, loginResult.getAccessToken().getToken());
         Intent intent = new Intent(getActivity(), ListActivity.class);
         startActivity(intent, false);
+        getActivity().overridePendingTransition(R.anim.right_to_left_enter,R.anim.right_to_left_exit);
     }
 
     @Override

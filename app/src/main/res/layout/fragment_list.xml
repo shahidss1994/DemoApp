@@ -1,13 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list"
-    android:name="com.shock.demoapp.ui.list.view.ItemFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    app:layoutManager="LinearLayoutManager"
-    tools:context=".ui.list.view.ListActivityFragment"
-    tools:listitem="@layout/fragment_item" />
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
+        android:name="com.shock.demoapp.ui.list.view.ItemFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        app:layoutManager="LinearLayoutManager"
+        tools:context=".ui.list.view.ListActivityFragment"
+        tools:listitem="@layout/fragment_item"
+        tools:visibility="visible" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_data_not_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/data_not_found"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_data_not_found"
+        android:layout_centerInParent="true"
+        android:text="@string/retry"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/rl_sort"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/semi_transparent"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/ll_sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="3dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_label_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:text="@string/label_sort"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black" />
+
+            <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/ctv_price_low_to_high"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/listPreferredItemHeightSmall"
+                android:checkMark="?android:attr/listChoiceIndicatorSingle"
+                android:gravity="center_vertical"
+                android:text="Price -- Low to High"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall" />
+
+            <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/ctv_price_high_to_low"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/listPreferredItemHeightSmall"
+                android:checkMark="?android:attr/listChoiceIndicatorSingle"
+                android:gravity="center_vertical"
+                android:text="Price -- High to Low"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black" />
+
+            <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/ctv_dis_low_to_high"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/listPreferredItemHeightSmall"
+                android:checkMark="?android:attr/listChoiceIndicatorSingle"
+                android:gravity="center_vertical"
+                android:text="Discount -- Low to High"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall" />
+
+            <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/ctv_dis_high_to_low"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/listPreferredItemHeightSmall"
+                android:checkMark="?android:attr/listChoiceIndicatorSingle"
+                android:gravity="center_vertical"
+                android:text="Discount -- High to Low"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black" />
+
+            <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/ctv_star_low_to_high"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/listPreferredItemHeightSmall"
+                android:checkMark="?android:attr/listChoiceIndicatorSingle"
+                android:gravity="center_vertical"
+                android:text="Popularity -- Low to High"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall" />
+
+            <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/ctv_star_high_to_low"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/listPreferredItemHeightSmall"
+                android:checkMark="?android:attr/listChoiceIndicatorSingle"
+                android:gravity="center_vertical"
+                android:text="Popularity -- High to Low"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+

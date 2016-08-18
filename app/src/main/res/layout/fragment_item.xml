@@ -1,20 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="1dp">
 
-    <TextView
-        android:id="@+id/id"
+    <android.support.v7.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        app:cardCornerRadius="5dp"
+        app:cardElevation="3dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="3dp">
 
-    <TextView
-        android:id="@+id/content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:textAppearance="?attr/textAppearanceListItem" />
-</LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/rl_to_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/img_prod"
+                    android:layout_width="170dp"
+                    android:layout_height="110dp"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/placeholder"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/placeholder" />
+
+                <RelativeLayout
+                    android:id="@+id/ll_prod_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/img_prod"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_prod_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        android:text="Activa"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_prod_locality"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_prod_name"
+                        android:layout_margin="2dp"
+                        android:text="Activa"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_prod_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_prod_locality"
+                        android:layout_margin="2dp"
+                        android:text="Activa"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/img_prod_score_star"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_alignBottom="@+id/tv_prod_score"
+                        android:layout_margin="2dp"
+                        android:layout_toEndOf="@+id/tv_prod_score"
+                        android:layout_toRightOf="@+id/tv_prod_score"
+                        android:src="@drawable/star" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_prod_offer_percentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_prod_score"
+                        android:layout_margin="2dp"
+                        android:text="Activa"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/img_prod_offer_percentage"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_alignBottom="@+id/tv_prod_offer_percentage"
+                        android:layout_margin="2dp"
+                        android:layout_toEndOf="@+id/tv_prod_offer_percentage"
+                        android:layout_toRightOf="@+id/tv_prod_offer_percentage"
+                        android:src="@drawable/percentage"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_prod_offer_percetage_off"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_prod_score"
+                        android:layout_margin="2dp"
+                        android:layout_toEndOf="@+id/img_prod_offer_percentage"
+                        android:layout_toRightOf="@+id/img_prod_offer_percentage"
+                        android:text="@string/label_off"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_to_view"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_prod_per_day_rent_amt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="perdayrent"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_prod_per_day_rent_offer_amt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="perdayrent"
+                        android:visibility="gone"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_prod_per_day_rent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="perdayrent"
+                        android:textSize="12dp" />
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_prod_per_week_rent_amt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="perdayrent"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_prod_per_week_rent_offer_amt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="perdayrent"
+                        android:visibility="gone"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_prod_per_week_rent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="perdayrent"
+                        android:textSize="12dp" />
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_prod_per_month_rent_amt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="perdayrent"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_prod_per_month_rent_offer_amt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="perdayrent"
+                        android:visibility="gone"
+                        android:textColor="@color/black"
+                        android:textSize="14dp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_prod_per_month_rent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="perdayrent"
+                        android:textSize="12dp" />
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+            </android.support.v7.widget.LinearLayoutCompat>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

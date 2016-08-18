@@ -4,7 +4,10 @@ import com.shock.demoapp.ui.list.interactor.ListInteractor;
 import com.shock.demoapp.ui.list.interactor.ListInteractorImpl;
 import com.shock.demoapp.ui.list.presenter.ListPresenter;
 import com.shock.demoapp.ui.list.presenter.ListPresenterImpl;
+import com.shock.demoapp.ui.list.presenter.OnCompletedListener;
+import com.shock.demoapp.ui.list.view.ListActivityFragment;
 import com.shock.demoapp.ui.list.view.ListView;
+import com.shock.demoapp.ui.list.view.OnListFragmentInteractionListener;
 
 import dagger.Module;
 import dagger.Provides;
@@ -15,15 +18,15 @@ import dagger.Provides;
 @Module
 public class ListModule {
 
-    public final ListView listView;
+    public final ListActivityFragment listActivityFragment;
 
-    public ListModule(ListView listView) {
-        this.listView = listView;
+    public ListModule(ListActivityFragment listActivityFragment) {
+        this.listActivityFragment = listActivityFragment;
     }
 
     @Provides
     ListView provideListView() {
-        return listView;
+        return listActivityFragment;
     }
 
     @Provides
@@ -34,6 +37,11 @@ public class ListModule {
     @Provides
     ListPresenter provideListPresenter(ListPresenterImpl listPresenter) {
         return listPresenter;
+    }
+
+    @Provides
+    OnListFragmentInteractionListener provideListener() {
+        return (OnListFragmentInteractionListener) listActivityFragment;
     }
 
 }
